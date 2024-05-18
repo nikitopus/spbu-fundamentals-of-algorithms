@@ -1,6 +1,6 @@
 from __future__ import annotations
 from dataclasses import dataclass
-from typing import Any, List, Optional
+from typing import Any
 import os
 import yaml
 
@@ -8,17 +8,17 @@ import yaml
 class Node:
     key: Any
     data: Any = None
-    left: Optional[Node] = None
-    right: Optional[Node] = None
+    left: Node = None
+    right: Node = None
 
 class BinaryTree:
     def __init__(self) -> None:
-        self.root: Optional[Node] = None
+        self.root: Node = None
 
     def empty(self) -> bool:
         return self.root is None
 
-    def zigzag_level_order_traversal(self) -> List[Any]:
+    def zigzag_level_order_traversal(self) -> list[Any]:
         if not self.root:
             return []
 
@@ -46,7 +46,7 @@ class BinaryTree:
 
         return results
 
-def build_tree(list_view: List[Any]) -> BinaryTree:
+def build_tree(list_view: list[Any]) -> BinaryTree:
     if not list_view:
         return BinaryTree()
 
